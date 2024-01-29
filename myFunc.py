@@ -149,7 +149,7 @@ print(get_indices_str([4, 3, 5, 2]))
 
 print("---")
 
-# Pogrupowanie wartości do kluczy 
+# Pogrupowanie wartości do kluczy
 data = [
     {'user': 'joe', 'main_technology': 'python'},
     {'user': 'tom', 'main_technology': 'c/cpp'},
@@ -159,22 +159,90 @@ data = [
     {'user': 'alice', 'main_technology': 'sql'},
 ]
 
+
 def convert(data):
     keysData = set(keys for d in data for keys in d.keys())
-    grouped_data = {key: [d[key] for d in data if key in d] for key in keysData}
+    grouped_data = {key: [d[key] for d in data if key in d]
+                    for key in keysData}
     return grouped_data
+
 
 print(convert(data))
 
 print("---")
 
-# do poprawienie 
+# funkcja która za dwa argumenty przyjmie dwie listy zagnieżdżone
+# oraz zwróci nową listę, która połączy elementy list
+# zagnieżdżonych na odpowiadających im pozycjach
+
+
 def concat(listToConcat, listToConcatSecond):
+    result = []
     num = 0
     while len(listToConcat) > num:
         nested_lists = [listToConcat[num], listToConcatSecond[num]]
         mergeList = [item for sublist in nested_lists for item in sublist]
+        result.append(mergeList)
         num += 1
-    return mergeList
+    return result
+
 
 print(concat([[6, 2], [6, 3, 7], [3, 5]], [[3], [4, 2], [0, 5, 1, 5]]))
+print(concat([[6, 2, 5, 2], [6, 3, 7]], [[4, 2], [0, 5, 1, 5]]))
+
+print("---")
+
+# funkcja która za argument przyjmie listę zagnieżdżoną
+# i posortuje ją rosnąco po każdej wewnętrznej liście.
+data = [
+    [4, 7, 2, 7, 9, 1],
+    [6, 3, 2, 8, 8],
+    [9, 7, 3, 2, 7]
+]
+
+
+def sort_by_row(data):
+    sortList = [sorted(li)for li in data]
+    return sortList
+
+
+print(sort_by_row([[4, 7, 2, 7, 9, 1], [6, 3, 2, 8, 8], [9, 7, 3, 2, 7]]))
+print(sort_by_row([[5, -2, 3, 7, 4], [6, 3]]))
+
+print("---")
+
+# funkcja która za argument przyjmie listę zagnieżdżoną
+# I zwróci trzy największe wartości z każdej wewnętrznej listy posortowane malejąco
+
+def top3(data):
+    myTop3 = [sorted(li, reverse=True)[:3] for li in data]
+    return myTop3
+
+print(top3([[4, 7, 2, 7, 9, 1, 3], [6, 3, 2, 8, 8, 7], [9, 7, 3, 2, 10, 2]]))
+
+print("---")
+
+# funkcja która za argument przyjmie listę zagnieżdżoną,
+# I pozostawi tylko te słowniki, w których występuje klucz o nazwie 'level'
+user_data = [
+    {'user_id': '3546', 'level': 64, 'is_active': True},
+    {'user_id': '3467', 'level': 34, 'is_active': False},
+    {'user_id': '6673', 'is_active': True},
+    {'user_id': '8454', 'level': 1, 'is_active': False},
+    {'user_id': '3757', 'level': 63, 'is_active': True},
+    {'user_id': '1668', 'is_active': False},
+]
+
+def filter_users(user_data):
+    resultData = []
+    for usKey in user_data:
+        if 'level' in usKey:
+            resultData.append(usKey)
+    return resultData
+
+print(filter_users(user_data))
+
+print("---")
+
+
+
