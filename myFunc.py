@@ -244,5 +244,86 @@ print(filter_users(user_data))
 
 print("---")
 
+# funkcja ma zwrócić listę wszystkich możliwych permutacji wyrazów przekazanego zdania 
+from itertools import permutations
+textPython = 'python is the best'
 
+def calculate(textPython):
+    words = textPython.split()
+    permutationList = list(permutations(words))
+    mutatedText = [" ".join(permutations) for permutations in permutationList]
+
+    return mutatedText
+    
+print(calculate(textPython))
+
+print('---')
+# funkcja która przyjmie dwie listy i zwróci listę będąca maskę logiczną - przyjmującą 1,
+# gdy te listy mają tą samą wartość na odpowiadających pozycjach, przeciwnie 0.
+
+listOne = [4, 5, 7, 2, 8, 10]
+listTwo = [3, 5, 4, 2, 8, 12]
+
+def create_mask(firstList, secondList):
+    finalResult = []
+    num = 0
+    while len(secondList) > num:
+        if firstList[num] == secondList[num]:
+            finalResult.append(1)
+        else:
+            finalResult.append(0) 
+        num += 1
+    return finalResult
+
+print(create_mask(listOne, listTwo))
+print(create_mask([2, 4, 1], [2, 3, 1]))
+
+print('---')
+
+# funkcja która przyjmie za argument listę i dokona następującego przekształcenia:
+# wszystkie liczby nieparzyste mnoży przez 2
+# [IN]: calculate([4, 5, 6, 7])
+# [OUT]: [4, 10, 6, 14]
+listToChange = [4, 5, 6, 7]
+
+def calculate (listToMultiply):
+    result = []
+    for num in listToMultiply:
+        if num % 2 == 1:
+            result.append(num * 2)
+        else:
+            result.append(num)
+    return result
+
+print(calculate(listToChange))
+print(calculate([9, 6, 3, 7, 11, 31, 40]))
+
+print('---')
+# funkcja która przyjmie za argument listę tupli o podanej strukturze
+# I posortuje listę po drugim elemencie tupli.
+
+def sort_tuple(listUser):
+    listUserSort = sorted([user for user in listUser ], key=lambda x: x[1])
+    return listUserSort
+
+print(sort_tuple([('mike', 34), ('bob', 41), ('john', 36), ('leo', 28)]))
+print(sort_tuple([('mike', 'music'), ('bob', 'art'), ('john', 'math'), ('leo', 'english')]))
+
+print('---')
+
+# funkcja która przyjmie za argument listę liczb i każdą ujemną liczbę zastąpi 0
+def replace_neg(listToReplace):
+    listResult = []
+    for i in listToReplace:
+        if 0 > i:
+            listResult.append(0)
+        else:
+            listResult.append(i)
+    return listResult
+
+print(replace_neg([4, -5, 2, 0, -4]))
+print(replace_neg([-10, -5, 8, -3, 7, -2]))
+
+# funkcja która przyjmie za argument listę i zwróci liczbę 
+# liczb dodatnich oraz ujemnych (zero uznajemy za liczbę dodatnią) w podanej liście 
 
