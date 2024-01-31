@@ -327,3 +327,54 @@ print(replace_neg([-10, -5, 8, -3, 7, -2]))
 # funkcja która przyjmie za argument listę i zwróci liczbę 
 # liczb dodatnich oraz ujemnych (zero uznajemy za liczbę dodatnią) w podanej liście 
 
+def count (myList):
+    numbPositive = []
+    numbNegative = []
+
+    for li in myList:
+        if li >= 0:
+            numbPositive.append(li)
+        else:
+            numbNegative.append(li)
+    return (len(numbPositive), len(numbNegative))
+
+print(count([4, 5, 6]))
+print(count([5, 2, -1, -5, -2]))
+
+print("---")
+
+# funkcja która przyjmie za argument ciąg znaków i przekształci ten ciąg znaków na liczbę całkowitą
+
+def preprocess(strNumber):
+    return int(strNumber[2:].replace(",", ""))
+
+print(preprocess('$ 975,400'))
+print(preprocess('$ 158,400,800'))
+
+print("---")
+
+# funkcja która przyjmie za argument listę słów i zwróci ciąg hashtagów utworzonych z tych słów
+
+def make_hashtags(hashWord):
+    return "#" + " #".join(hashWord)
+
+print(make_hashtags(['gym', 'sport', 'fit']))
+print(make_hashtags(['python', 'code', 'udemy', 'course']))
+
+print("---")
+
+# funkcja która przyjmie za argument tekst w języku angielskim i zamieni wszystkie cyfry (nie liczby) w tekście na zapis słowny
+# Tylko liczby 2, 3
+
+def convert (textConvert):
+    for li in textConvert:
+        if li == "2":
+            textConvert = textConvert.replace("2", "two", 1)
+        elif li == "3":
+            textConvert = textConvert.replace("3", "three", 1)
+    return textConvert
+
+print(convert('you need to have 2 tickets'))
+print(convert('3 tickets cost 15 euro'))
+
+print("---")
