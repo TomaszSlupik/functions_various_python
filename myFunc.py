@@ -378,3 +378,33 @@ print(convert('you need to have 2 tickets'))
 print(convert('3 tickets cost 15 euro'))
 
 print("---")
+
+# funkcja która będzie konwertować ciąg znaków zapisany jako snake_case na PascalCase 
+def convert(convertStr):
+    parts = convertStr.split("_")
+    return  "".join(word.capitalize() for word in parts)
+
+print(convert('some_important_function'))
+print(convert('calculate_summary'))
+
+print("---")
+
+# funkcja która będzie konwertować ciąg znaków zapisany jako snake_case na camelCase (patrz poniżej):
+def convertCamelCase(convertCamel):
+    items = convertCamel.split("_")
+    return items[0] + "".join(word.capitalize() for word in items[1:])
+
+print(convertCamelCase('some_important_function'))
+print(convertCamelCase('calculate_summary'))
+
+print("---")
+# funkcja która będzie przyjmować listę - strumień nazw plików i pozostawi tylko te nazwy plików, które kończą się na '.png'
+def preprocess(checkList):
+    onlyPng = []
+    for png in checkList:
+        if png.endswith(".png"):
+            onlyPng.append(png)
+            
+    return onlyPng
+
+print(preprocess(['img546.png', 'img243.png', 'img247.txt', 'img2456.pdf']))
