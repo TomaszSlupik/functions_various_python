@@ -408,3 +408,17 @@ def preprocess(checkList):
     return onlyPng
 
 print(preprocess(['img546.png', 'img243.png', 'img247.txt', 'img2456.pdf']))
+
+# funkcja która za argument będzie przyjmować listę krotek (tupli) i usunie z tej listy wszystkie jednoelementowe krotki (tuple).
+def preprocess_tuple (tupleList):
+    resultTuple = []
+    for li in tupleList:
+        if len(li) > 1:
+            resultTuple.append(li)
+    
+    return resultTuple
+
+print(preprocess_tuple([(4, 5), (4, ), (5, 2), (5, 3, 2), (5, )]))
+
+print("---")
+
