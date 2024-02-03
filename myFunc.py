@@ -422,3 +422,17 @@ print(preprocess_tuple([(4, 5), (4, ), (5, 2), (5, 3, 2), (5, )]))
 
 print("---")
 
+# funkcja która za argument będzie przyjmować listę krotek (tupli) i 
+# usunie z tej listy wszystkie krotki zawierające tylko wartości None
+# usuwam (None, None) lub (None,)
+
+def preprocessNone (listNone):
+    listResult = []   
+    for li in listNone:
+        if li[0] or li[-1]:
+            listResult.append(li)
+    return listResult
+
+print(preprocessNone([(4, 5), (4,), (5, None), (5, 3, 2), (None,)]))
+print(preprocessNone([(5, None), (None,), (3, None, None), (None, None)]))
+
