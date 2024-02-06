@@ -436,3 +436,30 @@ def preprocessNone (listNone):
 print(preprocessNone([(4, 5), (4,), (5, None), (5, 3, 2), (None,)]))
 print(preprocessNone([(5, None), (None,), (3, None, None), (None, None)]))
 
+print("---")
+
+# funkcja która za argument będzie przyjmować zagnieżdżoną listę lub krotkę i zwracać jej wypłaszczoną formę
+def flatten(*listNumber):
+    listNumberFlattened = []
+    for li in listNumber:
+        listNumberFlattened.extend(li)
+    return listNumberFlattened
+
+print(flatten([5], [6], [2], [3]))
+print(flatten([5], [6], [2, 4, 2], [3, 4]))
+
+print("---")
+
+# Funkcja ma przetworzyć podaną krotkę i zwrócić jeden ciąg będący ciągiem hashtagów utworzonych z podanych słów
+def flatten(listWithoutHash):
+    listHash = []
+    for li in listWithoutHash:
+        if li:
+            str_hash = " #".join(li)
+            listHash.append('#' + str_hash)
+    return (" ").join(listHash)
+
+print(flatten((['apple'], ['gym', 'fit'], ['movie', 'netflix'])))
+print(flatten((['orange'], [], ['movie', 'netflix'])))
+
+print("---")
