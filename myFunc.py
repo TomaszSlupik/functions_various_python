@@ -608,4 +608,54 @@ print(get_chunks('object oriented programming', 5))
 
 print("---")
 
-#
+# funkcja która sprawdzi, czy dany obiekt jest iterowalny (iterable)
+def is_iterable (obj):
+    try:
+        iter(obj)
+        return True
+    except:
+        return False
+
+print(is_iterable([4, 5]))
+print(is_iterable('python'))
+print(is_iterable(3.14))
+
+print("---")
+
+# funkcja  która przyjmie dwa argumenty:
+# heading - tytuł artykułu w serwisie internetowym
+# length - liczba znaków pozostałych po skróceniu tytułu artykułu, domyślnie 30 znaków
+# I zwróci skróconą formę tytułu artykułu do 30 znaków, łącznie z trzema kropkami na końcu ...
+
+def truncate(heading , length=30):
+    if len(heading) > length:
+        newText = "'" + heading[:27] + '...' + "'"
+        return newText
+    else:
+        return "'" + heading + "'"
+
+print(truncate('Python is a programming language that lets you work quickly.'))
+print(truncate('Python programming.'))
+
+print("---")
+
+"""
+Załóżmy, że implementujesz pewien proces ETL. 
+Jako dane wejściowe otrzymujesz pliki CSV o następującej strukturze:
+open,high,low,close
+45.3,46.1,45.3,45.4
+45.4,46.5,45.0,45.4
+Funkcja która będzie przyjmować jeden argument:
+row - jeden wiersz danych z pliku CSV o powyższej postaci (pomijając wiersz z nazwami kolumn)
+"""
+def transform(row):
+    listETL = row.split(",")
+    nameETL = ['open', 'high', 'low', 'close']
+    allETL = dict(zip(nameETL, listETL))
+    sorted_ETL = dict(sorted(allETL.items()))
+    return sorted_ETL
+
+print(transform('45.3,46.1,45.3,45.4'))
+
+print("---")
+
