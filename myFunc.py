@@ -659,3 +659,39 @@ print(transform('45.3,46.1,45.3,45.4'))
 
 print("---")
 
+# funkcja która zwróci maksimum z dwóch liczb. Użyj instrukcji warunkowej.
+def maximum (a, b):
+    if a > b:
+        return a
+    else:
+        return b
+    
+print(maximum(4, 2))
+print((maximum(-4, 2)))
+
+print("---")
+# funkcja która zwróci maksimum z trzech liczb. Użyj instrukcji warunkowej.
+def maksimumThree (a, b, c):
+    if a > b and a > c:
+        return a
+    elif b > a and b > c:
+        return b
+    else:
+        return c
+    
+print(maksimumThree(4, 2, 1))
+print(maksimumThree(-3, 2, 5))
+
+print("---")
+
+# funkcja która jako parametr przyjmie obiekt iterowalny (lista, tupla) oraz zwróci iloczyn wszystkich elementów listy.
+def multi(multiList):
+    num = 1
+    for ml in multiList:
+        num *= ml
+    return num
+
+print(multi((-4, 6, 2)))
+print(multi([4, 2, -5]))
+
+# 
