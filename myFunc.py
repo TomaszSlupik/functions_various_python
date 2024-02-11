@@ -694,4 +694,16 @@ def multi(multiList):
 print(multi((-4, 6, 2)))
 print(multi([4, 2, -5]))
 
-# 
+print("---")
+# funkcja która przyjmie listę słów i zwróci długość najdłuższego słowa.
+def map_longest(listLongest):
+    theLongest = []
+    for txt in listLongest:
+        theLongest.append(len(txt))
+    return sorted(theLongest, reverse=True)[0]
+
+
+print(map_longest(['python', 'sql']))
+print(map_longest(['java', 'sql', 'r']))
+
+print("---")
